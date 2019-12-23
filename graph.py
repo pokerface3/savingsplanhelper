@@ -38,7 +38,7 @@ def ReservedPrice(instanceType,term=1):
     return reserved_price
 
 
-df = pd.read_csv('usage.csv_back')
+df = pd.read_csv('usage.csv')
 
 plt.style.use('fivethirtyeight')
 plt.style.use('seaborn')
@@ -73,7 +73,7 @@ plotting = instanceTypes.groupby(['StartTime']).sum().drop(columns=['UsageValue'
 quantile = plotting.UsageCost.quantile(.3)
 #quantileDemand = plotting.DemandCost.quantile(.3)
 
-title = "Dec 18->19: " + str(quantile) 
+title = "30 Percentile: " + str(quantile) 
 
 items = []
 for index, row in plotting.iterrows():
